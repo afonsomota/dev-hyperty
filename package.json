@@ -6,7 +6,8 @@
   "scripts": {
     "test": "karma start",
     "preinstall": "npm install -g http-server karma-cli gulp-cli",
-    "start": "gulp serve"
+    "start": "gulp serve",
+    "start:dev": "gulp serve --dev"
   },
   "repository": {
     "type": "git",
@@ -19,8 +20,8 @@
   },
   "homepage": "https://github.com/reTHINK-project/dev-hyperty-toolkit#readme",
   "dependencies": {
-    "service-framework": "github:rethink-project/dev-service-framework#develop",
-    "runtime-browser": "github:rethink-project/dev-runtime-browser#master"
+    "service-framework": "github:rethink-project/dev-service-framework#master",
+    "runtime-core": "github:rethink-project/dev-runtime-core#master"
   },
   "devDependencies": {
     "babel-plugin-add-module-exports": "^0.1.2",

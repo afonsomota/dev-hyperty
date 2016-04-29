@@ -1,24 +1,24 @@
 // jshint browser:true, jquery: true
 // jshint varstmt: true
-
-import rethink from 'runtime-browser/bin/rethink';
+import RuntimeLoader from 'service-framework/dist/RuntimeLoader';
+import InstallerFactory from '../resources/factories/InstallerFactory';
 import config from '../config.json';
 
 import {getTemplate, serialize} from '../resources/utils/utils';
 
-window.KJUR = {};
+// import hyperties from '../resources/descriptors/Hyperties';
 
-console.log(config.domain);
+let installerFactory = new InstallerFactory();
+
+window.KJUR = {};
 
 let domain = config.domain;
 
-console.log(rethink, config);
+let runtime = 'https://catalogue.' + domain + '/.well-known/runtime/Runtime';
 
-let runtimeLoader;
-rethink.install(config).then(function(result) {
+let runtimeLoader = new RuntimeLoader(installerFactory, runtime);
 
-  runtimeLoader = result;
-  console.log(result);
+runtimeLoader.install().then(function() {
 
   return getListOfHyperties(domain);
 
